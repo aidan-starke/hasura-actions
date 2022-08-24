@@ -1,0 +1,28 @@
+{
+  "name": "hasura-actions",
+  "license": "ISC",
+  "version": "1.0.0",
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "webpack-cli --mode development --watch",
+    "build": "webpack-cli --mode production",
+    "format": "prettier --config .prettierrc.json ./ --write"
+  },
+  "dependencies": {
+    "@polkadot/api": "^9.2.3",
+    "express": "^4.18.1",
+    "prettier": "^2.7.1",
+    "ts-loader": "^9.3.1",
+    "tsconfig-paths-webpack-plugin": "^4.0.0",
+    "typescript": "^4.7.4",
+    "webpack-cli": "^4.10.0",
+    "webpack-merge": "^5.8.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.7.12"
+  }
+}
