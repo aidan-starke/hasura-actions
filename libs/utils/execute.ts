@@ -1,8 +1,9 @@
-// Execute the parent operation in hasura
+import { HASURA_SECRET } from "@/libs/constants";
 
+// Execute the parent operation in hasura
 export const execute = async (
 	query: string,
-	headers,
+	headers: HeadersInit,
 	variables: Record<string, unknown>
 ): Promise<any> => {
 	const fetchResponse = await fetch(
@@ -13,7 +14,10 @@ export const execute = async (
 				query,
 				variables,
 			}),
-			headers,
+			headers: {
+				...headers,
+				"x-hasura-admin-secret": HASURA_SECRET,
+			},
 		}
 	);
 	const data = await fetchResponse.json();

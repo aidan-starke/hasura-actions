@@ -1,8 +1,8 @@
+import bodyParser from "body-parser";
 import { execute } from "@/libs/utils";
 import express, { type Express } from "express";
 import { ApiPromise, WsProvider } from "@polkadot/api";
 import { GET_BLOCK_WITH_VALIDATOR } from "@/libs/constants";
-import bodyParser from "body-parser";
 
 const app = express();
 const port = process.env.PORT || 3000;
