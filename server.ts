@@ -21,7 +21,7 @@ const main = async (server: Express) => {
 
 			const { data, errors } = await execute(
 				GET_BLOCK_WITH_VALIDATOR,
-				req.headers,
+				req.headers as HeadersInit,
 				{
 					blockHash,
 				}
