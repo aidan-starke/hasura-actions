@@ -25,14 +25,11 @@ const main = async (server: Express) => {
 
 			if (errors) return res.status(400).json(errors[0]);
 
-			console.log(data)
-
 			return res.json({
-				...data.update_app_blocks,
+				...data.app_blocks[0],
 				validator: header.author.toString(),
 			});
 		} catch (error) {
-			console.log(error);
 			return res.status(400).json({
 				message: error.message,
 			});
