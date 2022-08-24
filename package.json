@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "webpack-cli --mode development --watch",
+    "start": "node dist/index.js",
     "build": "webpack-cli --mode production",
     "format": "prettier --config .prettierrc.json ./ --write"
   },
