@@ -2,15 +2,13 @@ import bodyParser from "body-parser";
 import { execute } from "@/libs/utils";
 import express, { type Express } from "express";
 import { ApiPromise, WsProvider } from "@polkadot/api";
-import { GET_BLOCK_WITH_VALIDATOR } from "@/libs/constants";
+import { API_ENDPOINT, GET_BLOCK_WITH_VALIDATOR } from "@/libs/constants";
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 const main = async (server: Express) => {
-	const wsProvider = new WsProvider(
-		"wss://polkadot.api.onfinality.io/public-ws"
-	);
+	const wsProvider = new WsProvider(API_ENDPOINT);
 	const api = await ApiPromise.create({ provider: wsProvider });
 
 	server.post("/GetBlockWithValidator", bodyParser.json(), async (req, res) => {
