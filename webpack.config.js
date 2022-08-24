@@ -5,7 +5,7 @@ const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const commonConfig = {
 	target: "node",
 	context: __dirname,
-	entry: { index: "server.ts" },
+	entry: { index: "index.ts" },
 	module: {
 		rules: [
 			{

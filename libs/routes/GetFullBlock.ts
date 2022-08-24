@@ -4,7 +4,7 @@ import type { Request, Response } from "express";
 import { execute } from "@/libs/utils";
 import { GET_FULL_BLOCK } from "@/libs/constants";
 
-export const GetFullBlock =
+export const getFullBlock =
 	(api: ApiPromise) => async (req: Request, res: Response) => {
 		try {
 			const { id } = req.body.input;

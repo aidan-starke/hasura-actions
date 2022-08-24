@@ -4,7 +4,7 @@ import type { Request, Response } from "express";
 import { execute } from "@/libs/utils";
 import { GET_BLOCK_WITH_VALIDATOR } from "@/libs/constants";
 
-export const GetBlockWithValidator =
+export const getBlockWithValidator =
 	(api: ApiPromise) => async (req: Request, res: Response) => {
 		try {
 			const { blockHash } = req.body.input;

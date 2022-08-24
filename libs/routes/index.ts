@@ -1,2 +1,2 @@
-export * from "./GetFullBlock";
-export * from "./GetBlockWithValidator";
+export * from "./getFullBlock";
+export * from "./getBlockWithValidator";
