@@ -19,13 +19,9 @@ const main = async (server: Express) => {
 
 			const header = await api.derive.chain.getHeader(blockHash);
 
-			const { data, errors } = await execute(
-				GET_BLOCK_WITH_VALIDATOR,
-				req.headers as HeadersInit,
-				{
-					blockHash,
-				}
-			);
+			const { data, errors } = await execute(GET_BLOCK_WITH_VALIDATOR, {
+				blockHash,
+			});
 
 			if (errors) return res.status(400).json(errors[0]);
 
@@ -34,7 +30,7 @@ const main = async (server: Express) => {
 				validator: header.author.toString(),
 			});
 		} catch (error) {
-			console.log(error)
+			console.log(error);
 			return res.status(400).json({
 				message: error.message,
 			});
