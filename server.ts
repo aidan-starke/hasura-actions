@@ -14,6 +14,7 @@ const main = async (server: Express) => {
 
 	server.post("/GetBlockWithValidator", async (req, res) => {
 		try {
+			console.log("req.body", req.body);
 			const { blockHash } = req.body.input;
 
 			const header = await api.derive.chain.getHeader(blockHash);
