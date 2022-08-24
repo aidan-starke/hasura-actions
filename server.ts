@@ -2,6 +2,7 @@ import { execute } from "@/libs/utils";
 import express, { type Express } from "express";
 import { ApiPromise, WsProvider } from "@polkadot/api";
 import { GET_BLOCK_WITH_VALIDATOR } from "@/libs/constants";
+import bodyParser from "body-parser";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -12,9 +13,8 @@ const main = async (server: Express) => {
 	);
 	const api = await ApiPromise.create({ provider: wsProvider });
 
-	server.post("/GetBlockWithValidator", async (req, res) => {
+	server.post("/GetBlockWithValidator", bodyParser.json(), async (req, res) => {
 		try {
-			console.log("req", req);
 			const { blockHash } = req.body.input;
 
 			const header = await api.derive.chain.getHeader(blockHash);
